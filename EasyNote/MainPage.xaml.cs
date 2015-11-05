@@ -7,6 +7,7 @@ using System.Linq;
 using System.Runtime.InteropServices.WindowsRuntime;
 using Windows.Foundation;
 using Windows.Foundation.Collections;
+using Windows.UI.Core;
 using Windows.UI.Xaml;
 using Windows.UI.Xaml.Controls;
 using Windows.UI.Xaml.Controls.Primitives;
@@ -27,6 +28,15 @@ namespace EasyNote
         public MainPage()
         {
             this.InitializeComponent();
+            this.NavigationCacheMode = NavigationCacheMode.Enabled;
+
+        }
+
+        protected override void OnNavigatedTo(NavigationEventArgs e)
+        {
+            SystemNavigationManager.GetForCurrentView().AppViewBackButtonVisibility 
+                = AppViewBackButtonVisibility.Collapsed;
+            grid.SelectedIndex = -1;
         }
 
         private ObservableCollection<MenuItem> menuList;
@@ -40,14 +50,10 @@ namespace EasyNote
                     menuList = new ObservableCollection<MenuItem>();
 
                     MenuItem item = new MenuItem() { Name = "Favoritos", Icon = "Favorite" };
-                    MenuItem item1 = new MenuItem() { Name = "Agregar", Icon = "Add" };
-                    MenuItem item2 = new MenuItem() { Name = "Editar", Icon = "Edit" };
-                    MenuItem item3 = new MenuItem() { Name = "Eliminar", Icon = "Delete" };
+                    MenuItem item1 = new MenuItem() { Name = "Agregar", Icon = "Add" };                   
 
                     menuList.Add(item);
-                    menuList.Add(item1);
-                    menuList.Add(item2);
-                    menuList.Add(item3);
+                    menuList.Add(item1);                   
                 }
                 return menuList;
             }
@@ -83,5 +89,20 @@ namespace EasyNote
 
         }
 
+        private void goToAdd(object sender, SelectionChangedEventArgs e)
+        {
+            Frame rootFrame = Window.Current.Content as Frame;
+            rootFrame.Navigate(typeof(AddNote));
+            
+        }
+
+        private void goToOpenNote(object sender, SelectionChangedEventArgs e)
+        {
+            if(grid.SelectedIndex >= 0) { 
+                Frame rootFrame = Window.Current.Content as Frame;
+                rootFrame.Navigate(typeof(OpenNote), Galery.ElementAt(grid.SelectedIndex));            
+              }
+
+        }
     }
 }

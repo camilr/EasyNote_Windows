@@ -1,8 +1,9 @@
 ﻿<Page
-    x:Class="EasyNote.AddNote"
+    x:Class="EasyNote.OpenNote"
     xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
     xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
     xmlns:local="using:EasyNote"
+    xmlns:models="using:EasyNote.Models"
     xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
     xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
     mc:Ignorable="d">
@@ -12,21 +13,25 @@
         <StackPanel
             Padding="20"
             >
-            <TextBlock Text="Agregar Nota" 
+            
+            <TextBlock Text="Nota" 
                        Style="{StaticResource HeaderTextBlockStyle}"
                        Margin="0,0,0,10"
-                       />                      
-            <TextBox 
-                x:Name="titulo"
-                PlaceholderText="Titulo" 
-                Margin="0 0 0 10"/>
-            <TextBox 
-                x:Name="contenido"
-                PlaceholderText="Contenido" 
-                Height="300"/>
-            <Button Content="Agregar" HorizontalAlignment="Right" Margin="0 10 0 0"/>
-
-
+                       />
+            <TextBlock Text="Titulo:"
+                       Margin="0 0 0 5"/>
+            <TextBlock 
+                x:Name="titulo"                
+                Margin="50 0 0 10"/>
+            <TextBlock Text="Contenido:"
+                       Margin="0 0 0 5"/>
+            <TextBlock 
+                x:Name="contenido"                
+                Height="300"
+                Margin="50 0 0 10"
+                />
+            
+            
         </StackPanel>
 
     </Grid>

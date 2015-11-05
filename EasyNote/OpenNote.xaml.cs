@@ -1,4 +1,5 @@
-﻿using System;
+﻿using EasyNote.Models;
+using System;
 using System.Collections.Generic;
 using System.IO;
 using System.Linq;
@@ -21,29 +22,36 @@ namespace EasyNote
     /// <summary>
     /// An empty page that can be used on its own or navigated to within a Frame.
     /// </summary>
-    public sealed partial class AddNote : Page
+    public sealed partial class OpenNote : Page
     {
         Frame rootFrame;
 
-        public AddNote()
+        public OpenNote()
         {
             this.InitializeComponent();
+
             rootFrame = Window.Current.Content as Frame;
-            
 
             SystemNavigationManager.GetForCurrentView().AppViewBackButtonVisibility
                 = AppViewBackButtonVisibility.Visible;
 
-            SystemNavigationManager.GetForCurrentView().BackRequested += AddNote_BackRequested;
+            SystemNavigationManager.GetForCurrentView().BackRequested += OpenNote_BackRequested;
         }
 
-        private void AddNote_BackRequested(object sender, BackRequestedEventArgs e)
+        private void OpenNote_BackRequested(object sender, BackRequestedEventArgs e)
         {
-            if(e.Handled == false)
+            if (e.Handled == false)
             {
                 e.Handled = true;
                 rootFrame.GoBack();
             }
+        }
+
+        protected override void OnNavigatedTo(NavigationEventArgs e)
+        {
+            GaleryItem item = e.Parameter as GaleryItem;
+            titulo.Text = item.Titulo;
+            contenido.Text = item.Contenido;
         }
     }
 }

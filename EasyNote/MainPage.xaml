@@ -34,7 +34,7 @@
                              ItemsSource="{x:Bind MenuList}"
                              Background="Transparent"
                              Margin="0" Padding="0"                             
-                             ItemContainerStyle="{StaticResource MenuItemStyle}"
+                             ItemContainerStyle="{StaticResource MenuItemStyle}" SelectionChanged="goToAdd"
                              >
                             <ListBox.ItemTemplate>
                                 <DataTemplate x:DataType="models:MenuItem">
@@ -61,7 +61,9 @@
                                Margin="0 0 0 10"
                                />
 
-                    <GridView ItemsSource="{x:Bind Galery}">
+                    <GridView 
+                        x:Name="grid"
+                        ItemsSource="{x:Bind Galery}" SelectionChanged="goToOpenNote">
                         <GridView.ItemTemplate>
                             <DataTemplate x:DataType="models:GaleryItem">
                                 <RelativePanel Width="130" Height="130" Margin="10">

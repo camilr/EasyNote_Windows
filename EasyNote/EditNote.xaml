@@ -1,0 +1,34 @@
+﻿<Page
+    x:Class="EasyNote.EditNote"
+    xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+    xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+    xmlns:local="using:EasyNote"
+    xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+    xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+    mc:Ignorable="d">
+
+    <Grid Background="{ThemeResource ApplicationPageBackgroundThemeBrush}">
+
+        <StackPanel Padding="20">
+            <TextBlock Text="Editar Nota"
+                       Style="{StaticResource HeaderTextBlockStyle}"
+                       Margin="0 0 0 10"
+                       />
+            <TextBox 
+                x:Name="title"
+                PlaceholderText="Titulo"
+                Margin="0 0 0 10"
+                />
+            <TextBox
+                x:Name="content"
+                PlaceholderText="Contenido"
+                Height="300"
+                Margin="0 0 0 10"
+                />
+            <Button 
+                Content="Aceptar"
+                HorizontalAlignment="Right"
+                />
+        </StackPanel>
+    </Grid>
+</Page>
