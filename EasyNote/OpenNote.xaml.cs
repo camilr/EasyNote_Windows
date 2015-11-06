@@ -1,6 +1,7 @@
 ﻿using EasyNote.Models;
 using System;
 using System.Collections.Generic;
+using System.Collections.ObjectModel;
 using System.IO;
 using System.Linq;
 using System.Runtime.InteropServices.WindowsRuntime;
@@ -25,6 +26,7 @@ namespace EasyNote
     public sealed partial class OpenNote : Page
     {
         Frame rootFrame;
+        GaleryItem item;
 
         public OpenNote()
         {
@@ -49,9 +51,21 @@ namespace EasyNote
 
         protected override void OnNavigatedTo(NavigationEventArgs e)
         {
-            GaleryItem item = e.Parameter as GaleryItem;
+            item = e.Parameter as GaleryItem;
             titulo.Text = item.Titulo;
             contenido.Text = item.Contenido;
+            
+        }        
+
+        private void goToEdit(object sender, RoutedEventArgs e)
+        {
+            Frame rootFrame = Window.Current.Content as Frame;
+            rootFrame.Navigate(typeof(EditNote), item) ;
+        }
+               
+        private void goToDelete(object sender, RoutedEventArgs e)
+        {
+            
         }
     }
 }

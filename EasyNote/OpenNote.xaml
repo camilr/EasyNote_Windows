@@ -8,31 +8,53 @@
     xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
     mc:Ignorable="d">
 
-    <Grid Background="{ThemeResource ApplicationPageBackgroundThemeBrush}">
+    <Page.BottomAppBar>
+        <CommandBar>
+            <CommandBar.PrimaryCommands>
+                <AppBarButton Icon="Delete"
+                              Label="Eliminar" 
+                              Click="goToDelete"
+                              />
+                <AppBarButton Icon="Edit"
+                              Label="Editar" 
+                              Click="goToEdit"
+                              />               
+            </CommandBar.PrimaryCommands>
+        </CommandBar>
+    </Page.BottomAppBar>    
 
-        <StackPanel
-            Padding="20"
+        <GridView        
+            x:Name="grid"
+            Background="{ThemeResource ApplicationPageBackgroundThemeBrush}"          
+            >           
+
+            <StackPanel            
+                Padding="20"                 
             >
-            
-            <TextBlock Text="Nota" 
+                <TextBlock Text="Nota" 
                        Style="{StaticResource HeaderTextBlockStyle}"
                        Margin="0,0,0,10"
                        />
-            <TextBlock Text="Titulo:"
-                       Margin="0 0 0 5"/>
-            <TextBlock 
-                x:Name="titulo"                
-                Margin="50 0 0 10"/>
-            <TextBlock Text="Contenido:"
-                       Margin="0 0 0 5"/>
-            <TextBlock 
-                x:Name="contenido"                
-                Height="300"
-                Margin="50 0 0 10"
+                <TextBlock Text="Titulo:"
+                       Margin="0 0 0 5"
+                       />
+                <TextBlock 
+                    x:Name="titulo"                
+                    Margin="50 0 0 10"
                 />
-            
-            
-        </StackPanel>
+                <TextBlock                     
+                    Text="Contenido:"
+                    Margin="0 0 0 5"
+                       />
+                <TextBlock 
+                    x:Name="contenido"  
+                    TextWrapping="Wrap"
+                    Width="auto"
+                    Height="auto"
+                    Margin="50 0 0 10"
+                />
+            </StackPanel>
 
-    </Grid>
+        </GridView>
+    
 </Page>

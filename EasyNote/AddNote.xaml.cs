@@ -1,10 +1,12 @@
-﻿using System;
+﻿using EasyNote.Models;
+using System;
 using System.Collections.Generic;
 using System.IO;
 using System.Linq;
 using System.Runtime.InteropServices.WindowsRuntime;
 using Windows.Foundation;
 using Windows.Foundation.Collections;
+using Windows.Storage;
 using Windows.UI.Core;
 using Windows.UI.Xaml;
 using Windows.UI.Xaml.Controls;
@@ -24,12 +26,12 @@ namespace EasyNote
     public sealed partial class AddNote : Page
     {
         Frame rootFrame;
-
+        GaleryItem item;
+        
         public AddNote()
         {
-            this.InitializeComponent();
-            rootFrame = Window.Current.Content as Frame;
-            
+            this.InitializeComponent();           
+            rootFrame = Window.Current.Content as Frame;            
 
             SystemNavigationManager.GetForCurrentView().AppViewBackButtonVisibility
                 = AppViewBackButtonVisibility.Visible;
@@ -37,6 +39,7 @@ namespace EasyNote
             SystemNavigationManager.GetForCurrentView().BackRequested += AddNote_BackRequested;
         }
 
+        
         private void AddNote_BackRequested(object sender, BackRequestedEventArgs e)
         {
             if(e.Handled == false)
@@ -44,6 +47,11 @@ namespace EasyNote
                 e.Handled = true;
                 rootFrame.GoBack();
             }
+        }
+                
+        private void add(object sender, RoutedEventArgs e)
+        {
+
         }
     }
 }

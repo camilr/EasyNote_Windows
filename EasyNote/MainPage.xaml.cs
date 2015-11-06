@@ -68,9 +68,16 @@ namespace EasyNote
                 if (galery == null)
                 {
                     galery = new ObservableCollection<GaleryItem>();
-                    GaleryItem item = new GaleryItem() { Titulo = "Recordar", Contenido = "Lunes" };
+                    GaleryItem item = new GaleryItem() { Titulo = "Recordar", Contenido = "La casa museo recibe visitantes a diario -expectantes de la belleza de su arquitectura colonial" };
+                    GaleryItem item1 = new GaleryItem() { Titulo = "9 Agosto", Contenido = "La casa museo recibe visitantes a diario -expectantes de la belleza de su arquitectura colonial" };
+                    GaleryItem item2 = new GaleryItem() { Titulo = "Wifi", Contenido = "akdnflakdnfkdf" };
+                    GaleryItem item3 = new GaleryItem() { Titulo = "Numero", Contenido = "3156423796" };
 
                     galery.Add(item);
+                    galery.Add(item1);
+                    galery.Add(item2);
+                    galery.Add(item3);
+
                 }
                 return galery;
             }
@@ -93,6 +100,7 @@ namespace EasyNote
         {
             Frame rootFrame = Window.Current.Content as Frame;
             rootFrame.Navigate(typeof(AddNote));
+            
             
         }
 

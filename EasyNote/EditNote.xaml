@@ -9,26 +9,39 @@
 
     <Grid Background="{ThemeResource ApplicationPageBackgroundThemeBrush}">
 
-        <StackPanel Padding="20">
-            <TextBlock Text="Editar Nota"
-                       Style="{StaticResource HeaderTextBlockStyle}"
-                       Margin="0 0 0 10"
-                       />
-            <TextBox 
-                x:Name="title"
-                PlaceholderText="Titulo"
-                Margin="0 0 0 10"
-                />
-            <TextBox
-                x:Name="content"
-                PlaceholderText="Contenido"
-                Height="300"
-                Margin="0 0 0 10"
-                />
-            <Button 
-                Content="Aceptar"
-                HorizontalAlignment="Right"
-                />
-        </StackPanel>
+        <GridView  
+            x:Name="grid"
+            Background="{ThemeResource ApplicationPageBackgroundThemeBrush}"            
+            >
+
+            <StackPanel 
+                Padding="20"
+                Width="350"
+                Height="350"
+                >
+                <TextBlock Text="Editar Nota"
+                           Style="{StaticResource HeaderTextBlockStyle}"
+                           Margin="0 0 0 10"
+                           />
+                <TextBox 
+                    x:Name="titulo"
+                    PlaceholderText="Titulo"
+                    Margin="0 0 0 10"
+                    />
+                <TextBox
+                    x:Name="contenido"
+                    PlaceholderText="Contenido"
+                    TextWrapping="Wrap"
+                    Width="auto"
+                    Height="auto"
+                    Margin="0 0 0 10"
+                    />
+                <Button 
+                    Content="Editar"
+                    HorizontalAlignment="Right" 
+                    Click="edit"
+                    />
+            </StackPanel>
+        </GridView>
     </Grid>
 </Page>
